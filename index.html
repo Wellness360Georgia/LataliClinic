@@ -1,0 +1,1926 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mountain Medicine Латали · Инвестиционная возможность</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<style>
+  /* === RESET & BASE === */
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #0A0908;
+    color: #F2EDE4;
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  :root {
+    --bg: #0A0908;
+    --bg-alt: #131210;
+    --bg-card: #1A1815;
+    --gold: #C9A875;
+    --gold-bright: #E5C896;
+    --gold-dim: #8E764E;
+    --cream: #F2EDE4;
+    --muted: #8B847A;
+    --line: #2A2722;
+    --accent-red: #C13D2F;
+  }
+
+  /* === TYPOGRAPHY === */
+  .display, h1, h2, h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+  h1 { font-size: clamp(3rem, 8vw, 7rem); }
+  h2 { font-size: clamp(2.2rem, 5vw, 4rem); margin-bottom: 1.5rem; }
+  h3 { font-size: clamp(1.4rem, 3vw, 2rem); }
+  
+  .mono {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+  
+  p { color: var(--cream); opacity: 0.85; }
+  .lead { font-size: 1.15rem; line-height: 1.7; max-width: 60ch; }
+
+  /* === LAYOUT === */
+  .container { max-width: 1280px; margin: 0 auto; padding: 0 2rem; }
+  .container-tight { max-width: 960px; margin: 0 auto; padding: 0 2rem; }
+  section { padding: 8rem 0; position: relative; }
+  
+  /* === NAV === */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 1.5rem 2rem;
+    background: rgba(10, 9, 8, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+    transition: all 0.3s ease;
+  }
+  .nav-inner { max-width: 1280px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+  .nav-brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    color: var(--cream);
+    letter-spacing: 0.02em;
+  }
+  .nav-brand span { color: var(--gold); font-style: italic; }
+  .nav-links { display: flex; gap: 2.5rem; }
+  .nav-links a {
+    font-size: 0.85rem;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.3s;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+  }
+  .nav-links a:hover { color: var(--gold); }
+  @media (max-width: 768px) { .nav-links { display: none; } }
+
+  /* === HERO === */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 8rem 0 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background: 
+      radial-gradient(ellipse at top right, rgba(201, 168, 117, 0.08) 0%, transparent 50%),
+      radial-gradient(ellipse at bottom left, rgba(193, 61, 47, 0.05) 0%, transparent 50%);
+    z-index: 0;
+  }
+  .hero-bg::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image: 
+      linear-gradient(rgba(201, 168, 117, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(201, 168, 117, 0.03) 1px, transparent 1px);
+    background-size: 80px 80px;
+  }
+  .hero-content { position: relative; z-index: 1; }
+  
+  .hero-eyebrow { 
+    margin-bottom: 2rem;
+    display: flex; align-items: center; gap: 1rem;
+    animation: fadeInUp 0.8s ease 0.2s both;
+  }
+  .hero-eyebrow::before {
+    content: '';
+    width: 60px; height: 1px; background: var(--gold);
+  }
+  .hero h1 {
+    margin-bottom: 1.5rem;
+    animation: fadeInUp 0.8s ease 0.4s both;
+  }
+  .hero h1 em { 
+    font-style: italic; 
+    color: var(--gold); 
+    font-weight: 300;
+  }
+  .hero-sub {
+    font-size: clamp(1.2rem, 2vw, 1.5rem);
+    color: var(--cream);
+    opacity: 0.7;
+    max-width: 60ch;
+    margin-bottom: 4rem;
+    line-height: 1.5;
+    animation: fadeInUp 0.8s ease 0.6s both;
+  }
+  
+  .hero-kpis {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    padding: 3rem 0;
+    animation: fadeInUp 0.8s ease 0.8s both;
+  }
+  @media (max-width: 768px) { .hero-kpis { grid-template-columns: 1fr; gap: 2rem; } }
+  
+  .kpi { padding-right: 2rem; border-right: 1px solid var(--line); }
+  .kpi:last-child { border-right: none; }
+  @media (max-width: 768px) { .kpi { border-right: none; border-bottom: 1px solid var(--line); padding-bottom: 1.5rem; } .kpi:last-child { border-bottom: none; } }
+  
+  .kpi-label { 
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--muted);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 0.8rem;
+  }
+  .kpi-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.5rem, 5vw, 3.8rem);
+    color: var(--gold-bright);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+    font-weight: 300;
+  }
+  .kpi-sub {
+    font-size: 0.9rem;
+    color: var(--muted);
+    font-style: italic;
+  }
+  
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* === SECTION HEADERS === */
+  .section-eyebrow {
+    margin-bottom: 1.5rem;
+    display: flex; align-items: center; gap: 1rem;
+  }
+  .section-eyebrow::before {
+    content: '';
+    width: 40px; height: 1px; background: var(--gold);
+  }
+  
+  /* === OPPORTUNITY SECTION === */
+  .opportunity { background: var(--bg-alt); position: relative; }
+  .opportunity-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    align-items: center;
+  }
+  @media (max-width: 900px) { .opportunity-grid { grid-template-columns: 1fr; gap: 3rem; } }
+  
+  .stat-block {
+    border-left: 2px solid var(--gold);
+    padding: 1.5rem 0 1.5rem 2rem;
+    margin: 2.5rem 0;
+  }
+  .stat-block .number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 4rem;
+    color: var(--gold-bright);
+    line-height: 1;
+    font-weight: 300;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+  .stat-block .label {
+    color: var(--muted);
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+  
+  /* Карточка-фото с подписью */
+  .photo-card {
+    position: relative;
+    border-radius: 4px;
+    overflow: hidden;
+    aspect-ratio: 4/3;
+    background: var(--bg-card);
+  }
+  .photo-card img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 0.6s ease;
+  }
+  .photo-card:hover img { transform: scale(1.04); }
+  .photo-card::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(10,9,8,0.7) 0%, transparent 50%);
+    pointer-events: none;
+  }
+  .photo-caption {
+    position: absolute; bottom: 1.5rem; left: 1.5rem;
+    color: var(--cream);
+    font-size: 0.9rem;
+    z-index: 2;
+  }
+  .photo-caption .mono { color: var(--gold); display: block; margin-bottom: 0.3rem; }
+
+  /* === MARKET / SEGMENTS === */
+  .market { background: var(--bg); }
+  .segments-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+  @media (max-width: 900px) { .segments-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 600px) { .segments-grid { grid-template-columns: 1fr; } }
+  
+  .segment-card {
+    background: var(--bg-card);
+    padding: 2.5rem 1.8rem;
+    border: 1px solid var(--line);
+    border-top: 3px solid var(--gold);
+    transition: all 0.4s ease;
+    position: relative;
+  }
+  .segment-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--gold);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  }
+  .segment-card .segment-share {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3rem;
+    color: var(--gold-bright);
+    line-height: 1;
+    font-weight: 300;
+    margin-bottom: 0.5rem;
+  }
+  .segment-card .segment-name {
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--cream);
+    margin-bottom: 0.8rem;
+  }
+  .segment-card .segment-desc {
+    font-size: 0.85rem;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+  .segment-card .segment-coverage {
+    margin-top: 1.2rem;
+    padding-top: 1.2rem;
+    border-top: 1px solid var(--line);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--gold);
+    letter-spacing: 0.1em;
+  }
+
+  /* === CONCEPT === */
+  .concept { background: var(--bg-alt); }
+  .profiles-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+    margin-top: 3rem;
+    border-top: 1px solid var(--line);
+  }
+  @media (max-width: 800px) { .profiles-list { grid-template-columns: 1fr; } }
+  
+  .profile-row {
+    padding: 2rem;
+    border-bottom: 1px solid var(--line);
+    border-right: 1px solid var(--line);
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    transition: background 0.3s;
+  }
+  .profile-row:nth-child(2n) { border-right: none; }
+  @media (max-width: 800px) { .profile-row { border-right: none; } }
+  .profile-row:hover { background: rgba(201, 168, 117, 0.04); }
+  
+  .profile-icon {
+    flex-shrink: 0;
+    width: 40px; height: 40px;
+    border: 1px solid var(--gold);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    color: var(--gold);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    margin-top: 0.2rem;
+  }
+  .profile-content h4 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--cream);
+    margin-bottom: 0.4rem;
+  }
+  .profile-content p { font-size: 0.88rem; color: var(--muted); line-height: 1.5; }
+  
+  .profile-row.excluded .profile-icon {
+    border-color: var(--accent-red); color: var(--accent-red);
+  }
+  .profile-row.excluded h4 { text-decoration: line-through; opacity: 0.6; }
+
+  /* === FINANCIAL === */
+  .financial { background: var(--bg); }
+  .chart-wrap {
+    background: var(--bg-card);
+    padding: 2.5rem;
+    border: 1px solid var(--line);
+    margin-top: 3rem;
+    position: relative;
+  }
+  .chart-wrap canvas { max-height: 380px; }
+  .chart-title {
+    display: flex; justify-content: space-between; align-items: baseline;
+    margin-bottom: 2rem;
+  }
+  .chart-title h3 { color: var(--cream); font-weight: 500; }
+  
+  .scenarios {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    margin-top: 4rem;
+  }
+  @media (max-width: 800px) { .scenarios { grid-template-columns: 1fr; } }
+  
+  .scenario {
+    padding: 3rem 2rem;
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    border-right: none;
+    transition: all 0.4s ease;
+  }
+  .scenario:last-child { border-right: 1px solid var(--line); }
+  @media (max-width: 800px) { .scenario { border-right: 1px solid var(--line); border-bottom: none; } .scenario:last-child { border-bottom: 1px solid var(--line); } }
+  
+  .scenario.featured {
+    background: linear-gradient(180deg, rgba(201,168,117,0.08) 0%, var(--bg-card) 100%);
+    border-color: var(--gold);
+    transform: scale(1.02);
+    z-index: 2;
+    position: relative;
+  }
+  .scenario.featured::before {
+    content: 'БАЗОВЫЙ';
+    position: absolute; top: -12px; left: 50%; transform: translateX(-50%);
+    background: var(--gold);
+    color: var(--bg);
+    padding: 0.3rem 1rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    font-weight: 600;
+  }
+  .scenario h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    color: var(--cream);
+    margin-bottom: 1.5rem;
+    font-weight: 400;
+  }
+  .scenario .row {
+    display: flex; justify-content: space-between;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid var(--line);
+    font-size: 0.9rem;
+  }
+  .scenario .row:last-child { border-bottom: none; }
+  .scenario .row span:first-child { color: var(--muted); }
+  .scenario .row span:last-child { color: var(--cream); font-family: 'JetBrains Mono', monospace; font-weight: 500; }
+  .scenario.featured .row span:last-child { color: var(--gold-bright); }
+
+  /* === CALCULATOR === */
+  .calculator { background: var(--bg-alt); position: relative; overflow: hidden; }
+  .calculator::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background: 
+      radial-gradient(circle at 20% 30%, rgba(201, 168, 117, 0.06) 0%, transparent 50%),
+      radial-gradient(circle at 80% 70%, rgba(193, 61, 47, 0.04) 0%, transparent 50%);
+  }
+  .calc-header { position: relative; z-index: 1; max-width: 720px; margin-bottom: 4rem; }
+  
+  .calc-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 4rem;
+    position: relative;
+    z-index: 1;
+  }
+  @media (max-width: 1000px) { .calc-grid { grid-template-columns: 1fr; gap: 3rem; } }
+  
+  .calc-controls {
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    padding: 2.5rem;
+    height: fit-content;
+    position: sticky;
+    top: 6rem;
+  }
+  @media (max-width: 1000px) { .calc-controls { position: static; } }
+  
+  .calc-controls h3 {
+    font-family: 'Cormorant Garamond', serif;
+    color: var(--cream);
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+  }
+  .calc-intro {
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-bottom: 2rem;
+    line-height: 1.5;
+  }
+  
+  .control-group { margin-bottom: 2rem; }
+  .control-group:last-child { margin-bottom: 0; }
+  
+  .control-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 0.8rem;
+  }
+  .control-name {
+    font-size: 0.85rem;
+    color: var(--cream);
+    font-weight: 500;
+  }
+  .control-value {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1rem;
+    color: var(--gold-bright);
+    font-weight: 500;
+  }
+  .control-hint {
+    font-size: 0.75rem;
+    color: var(--muted);
+    margin-top: 0.4rem;
+    font-style: italic;
+  }
+  
+  /* Custom slider */
+  input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 4px;
+    background: var(--line);
+    border-radius: 2px;
+    outline: none;
+    cursor: pointer;
+  }
+  input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px; height: 18px;
+    background: var(--gold-bright);
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid var(--bg);
+    box-shadow: 0 0 0 1px var(--gold);
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+  input[type="range"]::-webkit-slider-thumb:hover {
+    transform: scale(1.15);
+    box-shadow: 0 0 0 4px rgba(201, 168, 117, 0.2);
+  }
+  input[type="range"]::-moz-range-thumb {
+    width: 18px; height: 18px;
+    background: var(--gold-bright);
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid var(--bg);
+    box-shadow: 0 0 0 1px var(--gold);
+  }
+  
+  .control-track {
+    position: relative;
+    height: 4px;
+    margin-top: -4px;
+    pointer-events: none;
+  }
+  
+  /* Reset button */
+  .calc-reset {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .calc-reset-btn {
+    background: transparent;
+    border: 1px solid var(--gold-dim);
+    color: var(--gold);
+    padding: 0.6rem 1.2rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  .calc-reset-btn:hover {
+    border-color: var(--gold);
+    color: var(--gold-bright);
+    background: rgba(201, 168, 117, 0.05);
+  }
+  
+  /* Output panel */
+  .calc-outputs {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .output-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.2rem;
+  }
+  @media (max-width: 600px) { .output-cards { grid-template-columns: 1fr; } }
+  
+  .output-card {
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    padding: 1.8rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .output-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px; height: 0;
+    background: var(--gold);
+    transition: height 0.6s ease;
+  }
+  .output-card.has-value::before { height: 100%; }
+  
+  .output-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--muted);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 0.8rem;
+  }
+  .output-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.4rem;
+    color: var(--gold-bright);
+    font-weight: 300;
+    line-height: 1;
+    margin-bottom: 0.4rem;
+    transition: color 0.3s;
+  }
+  .output-value.negative { color: var(--accent-red); }
+  .output-sub {
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+  
+  .output-chart-wrap {
+    background: var(--bg-card);
+    border: 1px solid var(--line);
+    padding: 2rem;
+  }
+  .output-chart-wrap h4 {
+    font-family: 'Cormorant Garamond', serif;
+    color: var(--cream);
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+  }
+  .output-chart-wrap canvas { max-height: 280px; }
+
+  /* Сценарные пресеты */
+  .preset-buttons {
+    display: flex;
+    gap: 0.6rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+  }
+  .preset-btn {
+    background: transparent;
+    border: 1px solid var(--line);
+    color: var(--muted);
+    padding: 0.55rem 1rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  .preset-btn:hover, .preset-btn.active {
+    border-color: var(--gold);
+    color: var(--gold-bright);
+    background: rgba(201, 168, 117, 0.05);
+  }
+
+  /* === FUNDING === */
+  .funding { background: var(--bg); }
+  .funding-stack {
+    margin-top: 3rem;
+  }
+  .funding-row {
+    display: grid;
+    grid-template-columns: 0.7fr 3fr 1fr;
+    gap: 2rem;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--line);
+    align-items: center;
+  }
+  @media (max-width: 700px) { .funding-row { grid-template-columns: 1fr; gap: 0.5rem; } }
+  
+  .funding-amount {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    color: var(--gold-bright);
+    font-weight: 300;
+  }
+  .funding-source { color: var(--cream); font-weight: 500; }
+  .funding-source-sub { color: var(--muted); font-size: 0.85rem; margin-top: 0.3rem; }
+  .funding-bar-wrap { 
+    height: 4px; background: var(--bg-card); 
+    border-radius: 2px; overflow: hidden;
+    position: relative;
+  }
+  .funding-bar { 
+    height: 100%; background: linear-gradient(90deg, var(--gold-dim), var(--gold-bright)); 
+    border-radius: 2px;
+    transform-origin: left;
+    transform: scaleX(0);
+    transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .funding-bar.in-view { transform: scaleX(1); }
+  .funding-pct {
+    text-align: right;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--gold);
+  }
+
+  /* === ROADMAP === */
+  .roadmap { background: var(--bg); }
+  .timeline {
+    position: relative;
+    margin-top: 4rem;
+    padding-left: 3rem;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute; top: 0; bottom: 0; left: 0.5rem;
+    width: 1px; background: var(--line);
+  }
+  .timeline-item {
+    position: relative;
+    padding-bottom: 3rem;
+    padding-left: 1rem;
+  }
+  .timeline-item::before {
+    content: '';
+    position: absolute; left: -2.6rem; top: 0.5rem;
+    width: 12px; height: 12px;
+    background: var(--bg);
+    border: 2px solid var(--gold);
+    border-radius: 50%;
+    z-index: 2;
+  }
+  .timeline-item.active::before { background: var(--gold); box-shadow: 0 0 0 6px rgba(201,168,117,0.15); }
+  .timeline-month {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--gold);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+  .timeline-item h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: var(--cream);
+    margin-bottom: 0.6rem;
+  }
+  .timeline-item p { color: var(--muted); font-size: 0.95rem; max-width: 60ch; }
+
+  /* === CONTACT === */
+  .contact {
+    background: var(--bg-alt);
+    text-align: center;
+    padding: 10rem 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .contact::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(circle at center, rgba(201,168,117,0.08) 0%, transparent 70%);
+  }
+  .contact-content { position: relative; z-index: 1; }
+  .contact h2 { margin-bottom: 1.5rem; }
+  .contact p { max-width: 50ch; margin: 0 auto 3rem; opacity: 0.75; font-size: 1.1rem; }
+  
+  .signature {
+    border-top: 1px solid var(--line);
+    margin-top: 4rem;
+    padding-top: 2rem;
+  }
+  .signature .name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    color: var(--gold);
+    margin-bottom: 0.3rem;
+  }
+  .signature .title { color: var(--muted); font-size: 0.9rem; }
+
+  /* === FOOTER === */
+  footer {
+    padding: 3rem 0;
+    background: var(--bg);
+    border-top: 1px solid var(--line);
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+  footer .mono { display: block; margin-bottom: 0.5rem; }
+
+  /* === SCROLL ANIMATIONS === */
+  .reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* === DECORATIVE === */
+  .ornament {
+    text-align: center;
+    color: var(--gold);
+    font-size: 1.2rem;
+    margin: 4rem auto;
+    letter-spacing: 1rem;
+    opacity: 0.5;
+  }
+</style>
+</head>
+<body>
+
+<!-- ========================== NAV ========================== -->
+<nav>
+  <div class="nav-inner">
+    <div class="nav-brand">Mountain Medicine <span>Латали</span></div>
+    <div class="nav-links">
+      <a href="#opportunity">Возможность</a>
+      <a href="#market">Рынок</a>
+      <a href="#concept">Концепция</a>
+      <a href="#financial">Финансы</a>
+      <a href="#calculator">Калькулятор</a>
+      <a href="#funding">Капитал</a>
+      <a href="#roadmap">Этапы</a>
+      <a href="#contact">Контакт</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ========================== HERO ========================== -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="container hero-content">
+    <div class="hero-eyebrow"><span class="mono">Инвестиционная возможность · Май 2026</span></div>
+    <h1>Mountain Medicine<br><em>Латали</em></h1>
+    <p class="hero-sub">Многопрофильная частная клиника и скорая помощь для региона Сванети, Грузия. Закрываем медицинский разрыв в одной из самых быстрорастущих туристических зон Кавказа.</p>
+    
+    <div class="hero-kpis">
+      <div class="kpi">
+        <div class="kpi-label">Инвестиция</div>
+        <div class="kpi-value">$2,2M</div>
+        <div class="kpi-sub">CAPEX совокупный</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">EBITDA Год 3</div>
+        <div class="kpi-value">$1,6M</div>
+        <div class="kpi-sub">маржа 48%</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi-label">Окупаемость</div>
+        <div class="kpi-value">1,8</div>
+        <div class="kpi-sub">года по чистой прибыли</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================== OPPORTUNITY ========================== -->
+<section class="opportunity" id="opportunity">
+  <div class="container">
+    <div class="opportunity-grid">
+      <div class="reveal">
+        <div class="section-eyebrow"><span class="mono">01 · Возможность</span></div>
+        <h2>Регион без частной медицины</h2>
+        <p class="lead">В Сванети живёт 9 500 человек постоянно, через регион проходит 280 000 туристов в год. И есть только одна базовая региональная больница в Местиа.</p>
+        
+        <div class="stat-block">
+          <span class="number">5–10</span>
+          <span class="label">часов до ближайшего тертиарного центра. Серьёзные случаи везут в Кутаиси или Тбилиси, время до квалифицированной помощи критично для исхода.</span>
+        </div>
+
+        <div class="stat-block">
+          <span class="number">280K</span>
+          <span class="label">туристов в год. 40% из них — активные горные туристы со страховыми пакетами от 30 тысяч лари до 500 тысяч долларов.</span>
+        </div>
+
+        <div class="stat-block">
+          <span class="number">9 500</span>
+          <span class="label">постоянных жителей муниципалитета Местиа плюс 35 000 в соседних муниципалитетах в досягаемости.</span>
+        </div>
+      </div>
+      
+      <div class="reveal">
+        <div class="photo-card">
+          <img src="images/render_main.jpg" alt="Здание клиники, рендер">
+          <div class="photo-caption">
+            <span class="mono">Здание · Латали</span>
+            614 м², земля 412 м², готовность 40%
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================== MARKET ========================== -->
+<section class="market" id="market">
+  <div class="container">
+    <div class="reveal" style="max-width: 720px;">
+      <div class="section-eyebrow"><span class="mono">02 · Рынок</span></div>
+      <h2>Туристы платят через страховые компании</h2>
+      <p class="lead">Все международные туристы обязаны иметь медицинскую страховку для въезда в Грузию и Шенген. Активные горные туристы дополнительно покупают расширенные пакеты под свой риск-профиль.</p>
+    </div>
+
+    <div class="segments-grid">
+      <div class="segment-card reveal">
+        <div class="segment-share">55%</div>
+        <div class="segment-name">Базовая страховка</div>
+        <div class="segment-desc">Обязательный минимум для въезда в Грузию. Покрывает амбулаторные визиты и малые травмы.</div>
+        <div class="segment-coverage">30 000 ₾ покрытие</div>
+      </div>
+      
+      <div class="segment-card reveal">
+        <div class="segment-share">30%</div>
+        <div class="segment-name">Средний пакет</div>
+        <div class="segment-desc">Allianz Travel, AXA, World Nomads. Хайкеры, лыжники, треккеры. Хирургия, госпитализация, диагностика.</div>
+        <div class="segment-coverage">$50–100K покрытие</div>
+      </div>
+
+      <div class="segment-card reveal">
+        <div class="segment-share">10%</div>
+        <div class="segment-name">Экстрим-пакет</div>
+        <div class="segment-desc">Global Rescue, Ripcord, Garmin SAR. Фрирайдеры, альпинисты, хелиски-клиенты. Реанимация, эвакуация вертолётом.</div>
+        <div class="segment-coverage">$250K+ покрытие</div>
+      </div>
+
+      <div class="segment-card reveal">
+        <div class="segment-share">5%</div>
+        <div class="segment-name">Без страховки</div>
+        <div class="segment-desc">СНГ-туристы и эконом-туры. Платят сами, низкие чеки, малая часть.</div>
+        <div class="segment-coverage">прямая оплата</div>
+      </div>
+    </div>
+
+    <div class="ornament reveal">⊹ ⊹ ⊹</div>
+
+    <div class="reveal" style="max-width: 720px;">
+      <h3 style="color: var(--cream); margin-bottom: 1rem;">Постоянное население платит через государство</h3>
+      <p>С 2022 года в Грузии действует система DRG-тарифов в программе всеобщего здравоохранения. Бюджет программы — 1,03 млрд лари в год. Это даёт стабильный финансовый поток для амбулаторного и стационарного блоков клиники.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========================== CONCEPT ========================== -->
+<section class="concept" id="concept">
+  <div class="container">
+    <div class="reveal" style="max-width: 720px;">
+      <div class="section-eyebrow"><span class="mono">03 · Концепция</span></div>
+      <h2>Девять направлений плюс частная скорая</h2>
+      <p class="lead">Клиника регионального уровня с акцентом на травматологию, спортивную медицину и педиатрию. Операционный блок, стационар на 10 коек, диагностический центр.</p>
+    </div>
+
+    <div class="profiles-list reveal">
+      <div class="profile-row">
+        <div class="profile-icon">I</div>
+        <div class="profile-content">
+          <h4>Травматология амбулаторная</h4>
+          <p>Гипсовая, перевязочная, малая травма. Главный туристический поток с трасс и из бэккантри.</p>
+        </div>
+      </div>
+      <div class="profile-row">
+        <div class="profile-icon">II</div>
+        <div class="profile-content">
+          <h4>Травматология операционная</h4>
+          <p>Артроскопия, остеосинтез, шов сухожилий. Высокий чек, страховое покрытие международных пакетов.</p>
+        </div>
+      </div>
+      <div class="profile-row">
+        <div class="profile-icon">III</div>
+        <div class="profile-content">
+          <h4>Общая хирургия</h4>
+          <p>Аппендициты, грыжи, абсцессы. Малые лапароскопические операции, экстренная хирургия.</p>
+        </div>
+      </div>
+      <div class="profile-row">
+        <div class="profile-icon">IV</div>
+        <div class="profile-content">
+          <h4>Педиатрия</h4>
+          <p>Сванские дети плюс туристы с детьми. В Сванети нет нормальной частной детской медицины.</p>
+        </div>
+      </div>
+      <div class="profile-row">
+        <div class="profile-icon">V</div>
+        <div class="profile-content">
+          <h4>Амбулаторная терапия</h4>
+          <p>Семейный врач для местного населения по программе всеобщего здравоохранения. Базовый поток.</p>
+        </div>
+      </div>
+      <div class="profile-row">
+        <div class="profile-icon">VI</div>
+        <div class="profile-content">
+          <h4>Гинекология</h4>
+          <p>Амбулаторный приём, УЗИ, плановые операции. Без родильного блока (низкая маржа).</p>
+        </div>
+      </div>
+      <div class="profile-row">
+        <div class="profile-icon">VII</div>
+        <div class="profile-content">
+          <h4>Стоматология</h4>
+          <p>Лечение, чистка, протезирование, имплантация. В Сванети все ездят за стоматологией в Кутаиси.</p>
+        </div>
+      </div>
+      <div class="profile-row">
+        <div class="profile-icon">VIII</div>
+        <div class="profile-content">
+          <h4>Диагностика</h4>
+          <p>Рентген, УЗИ, лаборатория полного цикла. КТ — этап года 2. Поддержка всех профилей.</p>
+        </div>
+      </div>
+      <div class="profile-row">
+        <div class="profile-icon">IX</div>
+        <div class="profile-content">
+          <h4>Стационар (10 коек)</h4>
+          <p>Послеоперационное наблюдение, краткосрочная госпитализация. Реанимационная зона на 2 койки.</p>
+        </div>
+      </div>
+      <div class="profile-row" style="border-top: 2px solid var(--gold); border-bottom: none;">
+        <div class="profile-icon" style="border-color: var(--gold-bright); color: var(--gold-bright);">+</div>
+        <div class="profile-content">
+          <h4 style="color: var(--gold-bright);">Частная скорая помощь</h4>
+          <p>Парк 4WD реанимобилей и снегоходов, диспетчерская 24/7, договоры с курортами Тетнулди и Хацвали, партнёрство с хелиски-операторами.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="ornament reveal">⊹ ⊹ ⊹</div>
+
+    <div class="reveal" style="background: rgba(193,61,47,0.06); border-left: 2px solid var(--accent-red); padding: 2rem 2.5rem; max-width: 760px;">
+      <h3 style="color: var(--cream); font-size: 1.3rem; margin-bottom: 1rem;">Что НЕ включаем</h3>
+      <p style="margin-bottom: 0.8rem;"><strong style="color: var(--cream);">Родильный блок.</strong> Лимит государственной программы 800 ₾ при себестоимости 1 200₾+. Маржа отрицательная. Беременных направляем в Кутаиси.</p>
+      <p><strong style="color: var(--cream);">Кардиология, онкология, нейрохирургия.</strong> Дорогое оборудование, малый поток, тертиарные центры в Тбилиси справляются лучше. Работаем через систему направлений.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========================== FINANCIAL ========================== -->
+<section class="financial" id="financial">
+  <div class="container">
+    <div class="reveal" style="max-width: 720px;">
+      <div class="section-eyebrow"><span class="mono">04 · Финансы</span></div>
+      <h2>Прогноз 5 лет</h2>
+      <p class="lead">Базовый сценарий: доля рынка 20% к году 3, реалистичный штат 40+ сотрудников, постоянные расходы на уровне частной клиники с операционной.</p>
+    </div>
+
+    <div class="chart-wrap reveal">
+      <div class="chart-title">
+        <h3>Выручка и EBITDA, тыс USD</h3>
+        <span class="mono">5 лет</span>
+      </div>
+      <canvas id="revenueChart"></canvas>
+    </div>
+
+    <div class="chart-wrap reveal">
+      <div class="chart-title">
+        <h3>Маржа EBITDA и чистой прибыли, %</h3>
+        <span class="mono">Динамика</span>
+      </div>
+      <canvas id="marginChart"></canvas>
+    </div>
+
+    <div class="ornament reveal">⊹ ⊹ ⊹</div>
+
+    <div class="reveal" style="text-align: center; max-width: 720px; margin: 0 auto;">
+      <h3 style="color: var(--cream);">Три сценария</h3>
+      <p style="margin-top: 1rem;">Параметры доли рынка и туристического потока с травмами как основные драйверы.</p>
+    </div>
+
+    <div class="scenarios">
+      <div class="scenario reveal">
+        <h4>Пессимистичный</h4>
+        <div class="row"><span>Доля рынка Y3</span><span>12%</span></div>
+        <div class="row"><span>Туристов с травмами</span><span>1 500</span></div>
+        <div class="row"><span>Выручка Y3</span><span>$2,1M</span></div>
+        <div class="row"><span>EBITDA Y3</span><span>$680K</span></div>
+        <div class="row"><span>EBITDA маржа</span><span>32%</span></div>
+        <div class="row"><span>Окупаемость</span><span>3,2 года</span></div>
+      </div>
+
+      <div class="scenario featured reveal">
+        <h4>Базовый</h4>
+        <div class="row"><span>Доля рынка Y3</span><span>20%</span></div>
+        <div class="row"><span>Туристов с травмами</span><span>2 400</span></div>
+        <div class="row"><span>Выручка Y3</span><span>$3,4M</span></div>
+        <div class="row"><span>EBITDA Y3</span><span>$1,65M</span></div>
+        <div class="row"><span>EBITDA маржа</span><span>48%</span></div>
+        <div class="row"><span>Окупаемость</span><span>1,8 года</span></div>
+      </div>
+
+      <div class="scenario reveal">
+        <h4>Оптимистичный</h4>
+        <div class="row"><span>Доля рынка Y3</span><span>28%</span></div>
+        <div class="row"><span>Туристов с травмами</span><span>3 500</span></div>
+        <div class="row"><span>Выручка Y3</span><span>$4,5M</span></div>
+        <div class="row"><span>EBITDA Y3</span><span>$2,55M</span></div>
+        <div class="row"><span>EBITDA маржа</span><span>57%</span></div>
+        <div class="row"><span>Окупаемость</span><span>1,2 года</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================== CALCULATOR ========================== -->
+<section class="calculator" id="calculator">
+  <div class="container">
+    <div class="calc-header reveal">
+      <div class="section-eyebrow"><span class="mono">05 · Интерактивная модель</span></div>
+      <h2>Проверьте чувствительность</h2>
+      <p class="lead">Подвиньте параметры, чтобы увидеть как меняется выручка, EBITDA и окупаемость. Полная модель в Excel-файле — здесь упрощённая версия для быстрой проверки сценариев.</p>
+    </div>
+
+    <div class="calc-grid">
+      <!-- Контролы -->
+      <div class="calc-controls reveal">
+        <h3>Параметры</h3>
+        <p class="calc-intro">Все ключевые драйверы экономики клиники. Базовый сценарий выставлен по умолчанию.</p>
+
+        <div class="preset-buttons">
+          <button class="preset-btn" data-preset="pessimistic">Пессимист.</button>
+          <button class="preset-btn active" data-preset="base">Базовый</button>
+          <button class="preset-btn" data-preset="optimistic">Оптимист.</button>
+        </div>
+
+        <div class="control-group">
+          <div class="control-label">
+            <span class="control-name">Доля рынка местных, год 3</span>
+            <span class="control-value" id="val-market">20%</span>
+          </div>
+          <input type="range" id="ctrl-market" min="10" max="35" step="1" value="20">
+          <div class="control-hint">Какую часть всех медицинских обращений в регионе захватим</div>
+        </div>
+
+        <div class="control-group">
+          <div class="control-label">
+            <span class="control-name">Туристический поток в год</span>
+            <span class="control-value" id="val-tourists">280K</span>
+          </div>
+          <input type="range" id="ctrl-tourists" min="180" max="450" step="10" value="280">
+          <div class="control-hint">Текущий поток Сванети с трендом роста 12% год к году</div>
+        </div>
+
+        <div class="control-group">
+          <div class="control-label">
+            <span class="control-name">Травматизм у активных туристов</span>
+            <span class="control-value" id="val-injury">2,5%</span>
+          </div>
+          <input type="range" id="ctrl-injury" min="15" max="40" step="1" value="25">
+          <div class="control-hint">Доля активных туристов получающих травму на маршруте</div>
+        </div>
+
+        <div class="control-group">
+          <div class="control-label">
+            <span class="control-name">Средний чек туриста, GEL</span>
+            <span class="control-value" id="val-check">800 ₾</span>
+          </div>
+          <input type="range" id="ctrl-check" min="500" max="1400" step="50" value="800">
+          <div class="control-hint">Зависит от микса страховых пакетов и тарифов</div>
+        </div>
+
+        <div class="control-group">
+          <div class="control-label">
+            <span class="control-name">Совокупный CAPEX, USD</span>
+            <span class="control-value" id="val-capex">$2,17M</span>
+          </div>
+          <input type="range" id="ctrl-capex" min="170" max="320" step="5" value="217">
+          <div class="control-hint">Здание, оборудование, оборотный капитал на запуск</div>
+        </div>
+
+        <div class="control-group">
+          <div class="control-label">
+            <span class="control-name">Курс ₾ к USD</span>
+            <span class="control-value" id="val-fx">2,70</span>
+          </div>
+          <input type="range" id="ctrl-fx" min="250" max="310" step="2" value="270">
+          <div class="control-hint">Средний курс лари за 2025-2026</div>
+        </div>
+
+        <div class="calc-reset">
+          <span class="control-hint" style="font-style: normal; margin: 0;">Сбросить к базовому</span>
+          <button class="calc-reset-btn" id="btn-reset">Сброс</button>
+        </div>
+      </div>
+
+      <!-- Выходы -->
+      <div class="calc-outputs reveal">
+        <div class="output-cards">
+          <div class="output-card has-value">
+            <div class="output-label">Выручка год 3</div>
+            <div class="output-value" id="out-revenue">$3,4M</div>
+            <div class="output-sub" id="out-revenue-sub">медицина + скорая</div>
+          </div>
+          <div class="output-card has-value">
+            <div class="output-label">EBITDA год 3</div>
+            <div class="output-value" id="out-ebitda">$1,65M</div>
+            <div class="output-sub" id="out-ebitda-sub">маржа 48%</div>
+          </div>
+          <div class="output-card has-value">
+            <div class="output-label">Чистая прибыль год 3</div>
+            <div class="output-value" id="out-net">$1,22M</div>
+            <div class="output-sub" id="out-net-sub">после налога 15%</div>
+          </div>
+          <div class="output-card has-value">
+            <div class="output-label">Окупаемость</div>
+            <div class="output-value" id="out-payback">1,8</div>
+            <div class="output-sub" id="out-payback-sub">года по чистой прибыли</div>
+          </div>
+        </div>
+
+        <div class="output-chart-wrap">
+          <h4>Динамика выручки и EBITDA</h4>
+          <canvas id="calcChart"></canvas>
+        </div>
+
+        <div class="output-chart-wrap">
+          <h4>Накопленный денежный поток</h4>
+          <canvas id="cashflowChart"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================== FUNDING ========================== -->
+<section class="funding" id="funding">
+  <div class="container">
+    <div class="reveal" style="max-width: 720px;">
+      <div class="section-eyebrow"><span class="mono">06 · Капитал</span></div>
+      <h2>Структура финансирования</h2>
+      <p class="lead">Совокупная инвестиция $2,17 млн через комбинацию источников. Снижение риска для каждого участника, привлекательность для разных типов инвесторов.</p>
+    </div>
+
+    <div class="funding-stack reveal">
+      <div class="funding-row">
+        <div>
+          <div class="funding-amount">$800K</div>
+        </div>
+        <div>
+          <div class="funding-source">Якорный инвестор</div>
+          <div class="funding-source-sub">Долевое участие. Институциональный фонд или семейный офис с интересом к Кавказу.</div>
+        </div>
+        <div class="funding-pct">37%</div>
+      </div>
+      <div class="funding-row">
+        <div class="funding-bar-wrap"><div class="funding-bar" style="width: 37%;" data-pct="37"></div></div>
+        <div></div>
+        <div></div>
+      </div>
+
+      <div class="funding-row">
+        <div><div class="funding-amount">$600K</div></div>
+        <div>
+          <div class="funding-source">EBRD кредит</div>
+          <div class="funding-source-sub">Программа финансирования медицинской инфраструктуры. Ставка 4,5–6%, до 10 лет.</div>
+        </div>
+        <div class="funding-pct">28%</div>
+      </div>
+      <div class="funding-row">
+        <div class="funding-bar-wrap"><div class="funding-bar" style="width: 28%;" data-pct="28"></div></div>
+        <div></div>
+        <div></div>
+      </div>
+
+      <div class="funding-row">
+        <div><div class="funding-amount">$500K</div></div>
+        <div>
+          <div class="funding-source">Партнёр-оператор</div>
+          <div class="funding-source-sub">Долевое участие. Медицинская сеть EVEX, Caucasus Medical Centre или Medical House.</div>
+        </div>
+        <div class="funding-pct">23%</div>
+      </div>
+      <div class="funding-row">
+        <div class="funding-bar-wrap"><div class="funding-bar" style="width: 23%;" data-pct="23"></div></div>
+        <div></div>
+        <div></div>
+      </div>
+
+      <div class="funding-row">
+        <div><div class="funding-amount">$240K</div></div>
+        <div>
+          <div class="funding-source">Собственные средства организатора</div>
+          <div class="funding-source-sub">Долевое участие. Здание частично в собственности, плюс свежие средства.</div>
+        </div>
+        <div class="funding-pct">11%</div>
+      </div>
+      <div class="funding-row">
+        <div class="funding-bar-wrap"><div class="funding-bar" style="width: 11%;" data-pct="11"></div></div>
+        <div></div>
+        <div></div>
+      </div>
+
+      <div class="funding-row">
+        <div><div class="funding-amount">$30K</div></div>
+        <div>
+          <div class="funding-source">Грант Enterprise Georgia</div>
+          <div class="funding-source-sub">Государственная программа поддержки бизнеса в горных регионах.</div>
+        </div>
+        <div class="funding-pct">1%</div>
+      </div>
+      <div class="funding-row">
+        <div class="funding-bar-wrap"><div class="funding-bar" style="width: 1%;" data-pct="1"></div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================== ROADMAP ========================== -->
+<section class="roadmap" id="roadmap">
+  <div class="container">
+    <div class="reveal" style="max-width: 720px;">
+      <div class="section-eyebrow"><span class="mono">07 · Этапы</span></div>
+      <h2>Дорожная карта запуска</h2>
+      <p class="lead">От закрытия инвестиционного раунда до выхода на стационарный режим — 54 месяца.</p>
+    </div>
+
+    <div class="timeline reveal">
+      <div class="timeline-item active">
+        <div class="timeline-month">Месяцы 1–3 · Подготовка</div>
+        <h4>Закрытие инвестиционного раунда</h4>
+        <p>Финализация сделки, регистрация компании, найм CEO и медицинского директора, старт лицензирования.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-month">Месяцы 3–6 · Проектирование</div>
+        <h4>Адаптация архитектурного проекта</h4>
+        <p>Существующий проект переработан под медицинский класс. Утверждение в Регулирующем агентстве. Тендер на подрядчика.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-month">Месяцы 6–15 · Строительство</div>
+        <h4>Завершение здания и оснащение</h4>
+        <p>Монтаж медицинской инженерии. Поставка и установка оборудования. Параллельно: найм врачей и обучение персонала в партнёрской медсети.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-month">Месяцы 15–18 · Pre-opening</div>
+        <h4>Лицензии и запуск</h4>
+        <p>Получение всех лицензий. Контракт с программой всеобщего здравоохранения. Запуск частной скорой. Маркетинговая кампания. Soft opening.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-month">Месяцы 18–30 · Год 1</div>
+        <h4>Раскачка пациентопотока</h4>
+        <p>Выручка 30–40% от стационарной. Первые партнёрства с курортами. Старт аккредитации международных страховых.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-month">Месяцы 30–42 · Год 2</div>
+        <h4>Поставка КТ и расширение</h4>
+        <p>Получение direct billing с ключевыми страховыми. Расширение скорой до второго реанимобиля. Выручка 60–70% от стационарной.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-month">Месяцы 42–54 · Год 3</div>
+        <h4>Стационарный режим</h4>
+        <p>Выход на целевую EBITDA. Анализ и подготовка стратегии экзита для ранних инвесторов.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================== CONTACT ========================== -->
+<section class="contact" id="contact">
+  <div class="contact-content container-tight">
+    <div class="section-eyebrow" style="justify-content: center;"><span class="mono">08 · Контакт</span></div>
+    <h2>Готовы обсудить</h2>
+    <p>Полный инвестиционный меморандум и финансовая модель доступны по запросу. Просмотр объекта в Латали — по согласованию.</p>
+    
+    <div class="signature">
+      <div class="name">Ксения Марковская</div>
+      <div class="title">Организатор проекта · MBA Grenoble · Тбилиси и Сванети</div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================== FOOTER ========================== -->
+<footer>
+  <div class="container">
+    <span class="mono">Mountain Medicine Латали · Май 2026</span>
+    Документ носит концептуальный характер и не является офертой. Кадастровый код 42.08.50.130. Информация подтверждена выпиской из публичного реестра Грузии от 22 января 2026 года.
+  </div>
+</footer>
+
+<script>
+  // === Scroll reveal ===
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        // Activate funding bars
+        if (e.target.classList.contains('funding-stack') || e.target.querySelector?.('.funding-bar')) {
+          setTimeout(() => {
+            document.querySelectorAll('.funding-bar').forEach(b => b.classList.add('in-view'));
+          }, 200);
+        }
+      }
+    });
+  }, { threshold: 0.15 });
+  
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // === Charts ===
+  const goldGrad = (ctx) => {
+    const g = ctx.createLinearGradient(0, 0, 0, 380);
+    g.addColorStop(0, 'rgba(229, 200, 150, 0.4)');
+    g.addColorStop(1, 'rgba(229, 200, 150, 0.02)');
+    return g;
+  };
+  
+  const tickStyle = {
+    color: '#8B847A',
+    font: { family: 'JetBrains Mono', size: 11 }
+  };
+  
+  Chart.defaults.font.family = 'Inter';
+  Chart.defaults.color = '#8B847A';
+  
+  // Revenue/EBITDA chart
+  const ctx1 = document.getElementById('revenueChart').getContext('2d');
+  new Chart(ctx1, {
+    type: 'bar',
+    data: {
+      labels: ['Год 1', 'Год 2', 'Год 3', 'Год 4', 'Год 5'],
+      datasets: [
+        {
+          label: 'Выручка',
+          data: [1051, 2226, 3416, 3929, 4373],
+          backgroundColor: 'rgba(201, 168, 117, 0.85)',
+          borderColor: '#C9A875',
+          borderWidth: 0,
+          borderRadius: 2,
+        },
+        {
+          label: 'EBITDA',
+          data: [5, 816, 1645, 2026, 2307],
+          backgroundColor: 'rgba(229, 200, 150, 0.4)',
+          borderColor: '#E5C896',
+          borderWidth: 1,
+          borderRadius: 2,
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { 
+          position: 'bottom',
+          labels: { color: '#F2EDE4', usePointStyle: true, pointStyle: 'rect', padding: 20, font: { size: 12 } }
+        },
+        tooltip: {
+          backgroundColor: '#1A1815',
+          borderColor: '#C9A875',
+          borderWidth: 1,
+          titleColor: '#E5C896',
+          bodyColor: '#F2EDE4',
+          padding: 12,
+          callbacks: {
+            label: (c) => `${c.dataset.label}: $${c.parsed.y}K`
+          }
+        }
+      },
+      scales: {
+        x: { ticks: tickStyle, grid: { color: 'rgba(42,39,34,0.5)', drawBorder: false } },
+        y: { 
+          ticks: { ...tickStyle, callback: v => '$' + v + 'K' }, 
+          grid: { color: 'rgba(42,39,34,0.5)', drawBorder: false },
+          beginAtZero: true
+        }
+      }
+    }
+  });
+
+  // Margin chart
+  const ctx2 = document.getElementById('marginChart').getContext('2d');
+  new Chart(ctx2, {
+    type: 'line',
+    data: {
+      labels: ['Год 1', 'Год 2', 'Год 3', 'Год 4', 'Год 5'],
+      datasets: [
+        {
+          label: 'EBITDA маржа',
+          data: [0.5, 36.7, 48.1, 51.6, 52.8],
+          borderColor: '#E5C896',
+          backgroundColor: goldGrad(ctx2),
+          tension: 0.4,
+          borderWidth: 2.5,
+          pointBackgroundColor: '#E5C896',
+          pointBorderColor: '#0A0908',
+          pointBorderWidth: 2,
+          pointRadius: 5,
+          pointHoverRadius: 7,
+          fill: true,
+        },
+        {
+          label: 'Маржа чистой прибыли',
+          data: [-14.8, 24.5, 35.7, 39.1, 40.6],
+          borderColor: '#8E764E',
+          backgroundColor: 'rgba(142, 118, 78, 0.05)',
+          tension: 0.4,
+          borderWidth: 2.5,
+          borderDash: [6, 4],
+          pointBackgroundColor: '#8E764E',
+          pointBorderColor: '#0A0908',
+          pointBorderWidth: 2,
+          pointRadius: 5,
+          pointHoverRadius: 7,
+          fill: false,
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { 
+          position: 'bottom',
+          labels: { color: '#F2EDE4', usePointStyle: true, padding: 20, font: { size: 12 } }
+        },
+        tooltip: {
+          backgroundColor: '#1A1815',
+          borderColor: '#C9A875',
+          borderWidth: 1,
+          titleColor: '#E5C896',
+          bodyColor: '#F2EDE4',
+          padding: 12,
+          callbacks: {
+            label: (c) => `${c.dataset.label}: ${c.parsed.y.toFixed(1)}%`
+          }
+        }
+      },
+      scales: {
+        x: { ticks: tickStyle, grid: { color: 'rgba(42,39,34,0.5)', drawBorder: false } },
+        y: { 
+          ticks: { ...tickStyle, callback: v => v + '%' }, 
+          grid: { color: 'rgba(42,39,34,0.5)', drawBorder: false }
+        }
+      }
+    }
+  });
+
+  // === FINANCIAL CALCULATOR ===
+  // Базовая модель: считает выручку, EBITDA, чистую прибыль и окупаемость по 5 годам
+  // на основе входных параметров
+  
+  const calcParams = {
+    market: 20,        // % доля рынка местных в год 3
+    tourists: 280,     // тыс туристов в год
+    injury: 25,        // 0.1% травматизм у активных туристов (25 = 2.5%)
+    check: 800,        // средний чек туриста GEL
+    capex: 217,        // CAPEX в десятках тыс USD (217 = 2.17M)
+    fx: 270            // курс GEL/USD * 100 (270 = 2.70)
+  };
+
+  const presets = {
+    pessimistic: { market: 12, tourists: 230, injury: 20, check: 650, capex: 220, fx: 270 },
+    base:        { market: 20, tourists: 280, injury: 25, check: 800, capex: 217, fx: 270 },
+    optimistic:  { market: 28, tourists: 350, injury: 30, check: 950, capex: 215, fx: 270 }
+  };
+
+  // Финансовая модель — упрощённая версия Excel
+  function calculate(p) {
+    const fx = p.fx / 100;                    // 2.70
+    const marketShare = p.market / 100;       // 0.20
+    const tourists = p.tourists * 1000;       // 280000
+    const injuryRate = p.injury / 1000;       // 0.025
+    
+    // Население в зоне досягаемости
+    const popLocal = 9500;
+    const popAround = 35000;
+    const populationServed = popLocal + popAround * 0.30;
+    
+    // === Выручка медицины (год 3, GEL) ===
+    // Терапия: население * 4.5 визита * доля * 45% обращений за терапией * средний тариф 100 GEL
+    const revTherapy = populationServed * 4.5 * marketShare * 0.45 * 100;
+    
+    // Педиатрия: дети 18% * 4 визита * (доля + 0.05 для специализации) * тариф 130 GEL + туристы
+    const revPed = populationServed * 0.18 * 4 * (marketShare + 0.05) * 130 + tourists * 0.04 * 200;
+    
+    // Травматология амбулаторная: туристы активные * травматизм * 70% к нам * тариф 290 GEL
+    const revTraumaAmb = tourists * 0.40 * injuryRate * 0.70 * 290 + populationServed * 0.025 * 200;
+    
+    // Травматология операционная: 15% от амбулаторных идут в операцию * 4500 GEL
+    const revTraumaOp = tourists * 0.40 * injuryRate * 0.70 * 0.15 * 4500 + populationServed * 0.0008 * 4000;
+    
+    // Общая хирургия: 0.6% населения * доля * 1700 GEL + туристы экстренные
+    const revSurgery = populationServed * 0.006 * marketShare * 1700 + tourists * 0.001 * 1500;
+    
+    // Гинекология: женщины * 1.5 визита * доля * 180 GEL
+    const revGyn = populationServed * 0.45 * 1.5 * marketShare * 180 + tourists * 0.005 * 250;
+    
+    // Стоматология: 60% населения * доля 30% * 250 GEL  
+    const revDental = populationServed * 0.60 * (marketShare + 0.10) * 250 + tourists * 0.005 * 350;
+    
+    // Диагностика: 1.2 исследования/чел * доля * 60 GEL средний + туристы
+    const revDiag = populationServed * 1.2 * marketShare * 60 + tourists * 0.04 * 200;
+    
+    // Стационар: 10 коек * 365 * 50% загрузка * 290 GEL
+    const revInpatient = 10 * 365 * 0.50 * 290;
+    
+    const revMedicalGEL_y3 = revTherapy + revPed + revTraumaAmb + revTraumaOp + revSurgery + revGyn + revDental + revDiag + revInpatient;
+    
+    // Скорая помощь: масштабируется от потока туристов и среднего чека
+    const ambBase = 1130000; // базовая выручка скорой при 280K туристов
+    const ambScale = (tourists / 280000) * (p.check / 800);
+    const revAmbGEL_y3 = ambBase * ambScale;
+    
+    // === Конвертация чека: средний тариф ноль-сумма с параметром check ===
+    const checkAdj = p.check / 800;
+    const totalRevenueGEL_y3 = (revMedicalGEL_y3 * checkAdj * 0.55 + revMedicalGEL_y3 * 0.45) + revAmbGEL_y3;
+    // 55% выручки чувствительно к чеку (туристическая часть), 45% это ОМС не зависит
+    
+    // === Расходы ===
+    // Переменные ~ 16% от выручки
+    const varCosts = totalRevenueGEL_y3 * 0.16;
+    
+    // ФОТ — растёт со штатом, при базовом 2.4 млн GEL/год
+    // Чувствительность: при росте выручки на 50% штат растёт на 25%
+    const baseRevenue = 9223000;
+    const fotBase = 2443000;
+    const fotScale = 1 + (totalRevenueGEL_y3 / baseRevenue - 1) * 0.5;
+    const fot = fotBase * Math.max(0.85, fotScale);
+    
+    // Постоянные расходы 752к/год
+    const fixedCosts = 752000;
+    
+    // EBITDA
+    const ebitdaGEL_y3 = totalRevenueGEL_y3 - varCosts - fot - fixedCosts;
+    const ebitdaMargin = ebitdaGEL_y3 / totalRevenueGEL_y3;
+    
+    // Амортизация ~10% от CAPEX в GEL
+    const capexGEL = p.capex * 10000 * fx; // p.capex в десятках тыс USD
+    const amort = capexGEL * 0.10;
+    
+    const ebit = ebitdaGEL_y3 - amort;
+    const tax = Math.max(0, ebit) * 0.15;
+    const netGEL_y3 = ebit - tax;
+    
+    // Раскачка: год 1 = 30% выручки, год 2 = 65%, год 3 = 100%
+    const ramps = [0.30, 0.65, 1.00, 1.15, 1.28];
+    const yearlyData = ramps.map((r, i) => {
+      const rev = totalRevenueGEL_y3 * r;
+      const vc = rev * 0.16;
+      const fotY = fotBase * (i === 0 ? 0.65 : i === 1 ? 0.83 : Math.max(0.85, fotScale)) * (1 + i * 0.03);
+      const fcY = fixedCosts * Math.pow(1.05, i);
+      const ebitdaY = rev - vc - fotY - fcY;
+      const ebitY = ebitdaY - amort;
+      const taxY = Math.max(0, ebitY) * 0.15;
+      const netY = ebitY - taxY;
+      return { rev, ebitda: ebitdaY, net: netY };
+    });
+    
+    // Окупаемость по чистой прибыли (cumulative)
+    const totalCapexGEL = capexGEL;
+    let cumNet = 0;
+    let paybackYears = null;
+    for (let i = 0; i < yearlyData.length; i++) {
+      cumNet += yearlyData[i].net;
+      if (cumNet >= totalCapexGEL && paybackYears === null) {
+        paybackYears = i + 1 - (cumNet - totalCapexGEL) / yearlyData[i].net;
+      }
+    }
+    if (paybackYears === null) paybackYears = 5 + (totalCapexGEL - cumNet) / yearlyData[4].net;
+    
+    return {
+      revenue_y3_usd: totalRevenueGEL_y3 / fx / 1000,
+      ebitda_y3_usd: ebitdaGEL_y3 / fx / 1000,
+      ebitda_margin: ebitdaMargin,
+      net_y3_usd: netGEL_y3 / fx / 1000,
+      net_margin: netGEL_y3 / totalRevenueGEL_y3,
+      payback: paybackYears,
+      capex_usd: p.capex * 10,
+      yearly: yearlyData.map(d => ({
+        rev: d.rev / fx / 1000,
+        ebitda: d.ebitda / fx / 1000,
+        net: d.net / fx / 1000
+      }))
+    };
+  }
+  
+  // Форматирование
+  function fmtUSD(thousands) {
+    if (thousands >= 1000) return '$' + (thousands / 1000).toFixed(2).replace('.', ',') + 'M';
+    return '$' + Math.round(thousands) + 'K';
+  }
+  function fmtPct(v, decimals = 0) { return (v * 100).toFixed(decimals).replace('.', ',') + '%'; }
+  function fmtYears(v) { 
+    if (v < 0) return '—';
+    if (v > 10) return '>10 лет';
+    return v.toFixed(1).replace('.', ',') + ' лет';
+  }
+  
+  // Update labels
+  function updateLabels() {
+    document.getElementById('val-market').textContent = calcParams.market + '%';
+    document.getElementById('val-tourists').textContent = calcParams.tourists + 'K';
+    document.getElementById('val-injury').textContent = (calcParams.injury / 10).toFixed(1).replace('.', ',') + '%';
+    document.getElementById('val-check').textContent = calcParams.check + ' ₾';
+    document.getElementById('val-capex').textContent = '$' + (calcParams.capex / 100).toFixed(2).replace('.', ',') + 'M';
+    document.getElementById('val-fx').textContent = (calcParams.fx / 100).toFixed(2).replace('.', ',');
+  }
+  
+  // Calc chart instance
+  let calcChartInstance = null;
+  let cashflowChartInstance = null;
+  
+  function updateOutputs() {
+    const result = calculate(calcParams);
+    
+    // Cards
+    document.getElementById('out-revenue').textContent = fmtUSD(result.revenue_y3_usd);
+    document.getElementById('out-ebitda').textContent = fmtUSD(result.ebitda_y3_usd);
+    document.getElementById('out-ebitda-sub').textContent = 'маржа ' + fmtPct(result.ebitda_margin);
+    document.getElementById('out-net').textContent = fmtUSD(result.net_y3_usd);
+    document.getElementById('out-payback').textContent = result.payback < 0 || result.payback > 10 ? '—' : result.payback.toFixed(1).replace('.', ',');
+    document.getElementById('out-payback-sub').textContent = 
+      result.payback < 0 ? 'не достигается' : 
+      result.payback > 10 ? 'более 10 лет' :
+      'года по чистой прибыли';
+    
+    // Цвета: красный если EBITDA отрицательная
+    const ebitdaEl = document.getElementById('out-ebitda');
+    ebitdaEl.classList.toggle('negative', result.ebitda_y3_usd < 0);
+    const netEl = document.getElementById('out-net');
+    netEl.classList.toggle('negative', result.net_y3_usd < 0);
+    
+    // Update charts
+    if (calcChartInstance) {
+      calcChartInstance.data.datasets[0].data = result.yearly.map(y => Math.round(y.rev));
+      calcChartInstance.data.datasets[1].data = result.yearly.map(y => Math.round(y.ebitda));
+      calcChartInstance.update('none');
+    }
+    
+    if (cashflowChartInstance) {
+      // Накопленный денежный поток: -CAPEX (год 0) + чистая прибыль (годы 1-5)
+      let cum = -result.capex_usd;
+      const cumData = [cum];
+      result.yearly.forEach(y => {
+        cum += y.net;
+        cumData.push(Math.round(cum));
+      });
+      cashflowChartInstance.data.datasets[0].data = cumData;
+      cashflowChartInstance.update('none');
+    }
+  }
+  
+  // Init calculator charts
+  function initCalcCharts() {
+    const result = calculate(calcParams);
+    
+    // Revenue/EBITDA chart
+    const c1 = document.getElementById('calcChart').getContext('2d');
+    calcChartInstance = new Chart(c1, {
+      type: 'bar',
+      data: {
+        labels: ['Год 1', 'Год 2', 'Год 3', 'Год 4', 'Год 5'],
+        datasets: [
+          {
+            label: 'Выручка',
+            data: result.yearly.map(y => Math.round(y.rev)),
+            backgroundColor: 'rgba(201, 168, 117, 0.8)',
+            borderRadius: 2,
+          },
+          {
+            label: 'EBITDA',
+            data: result.yearly.map(y => Math.round(y.ebitda)),
+            backgroundColor: 'rgba(229, 200, 150, 0.4)',
+            borderColor: '#E5C896',
+            borderWidth: 1,
+            borderRadius: 2,
+          }
+        ]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        animation: { duration: 400 },
+        plugins: {
+          legend: { position: 'bottom', labels: { color: '#F2EDE4', usePointStyle: true, pointStyle: 'rect', padding: 16, font: { size: 11 } } },
+          tooltip: {
+            backgroundColor: '#1A1815', borderColor: '#C9A875', borderWidth: 1,
+            titleColor: '#E5C896', bodyColor: '#F2EDE4', padding: 10,
+            callbacks: { label: c => `${c.dataset.label}: $${c.parsed.y}K` }
+          }
+        },
+        scales: {
+          x: { ticks: tickStyle, grid: { color: 'rgba(42,39,34,0.5)' } },
+          y: { ticks: { ...tickStyle, callback: v => '$' + v + 'K' }, grid: { color: 'rgba(42,39,34,0.5)' } }
+        }
+      }
+    });
+    
+    // Cashflow chart
+    let cum = -result.capex_usd;
+    const cumData = [cum];
+    result.yearly.forEach(y => { cum += y.net; cumData.push(Math.round(cum)); });
+    
+    const c2 = document.getElementById('cashflowChart').getContext('2d');
+    cashflowChartInstance = new Chart(c2, {
+      type: 'line',
+      data: {
+        labels: ['Год 0', 'Год 1', 'Год 2', 'Год 3', 'Год 4', 'Год 5'],
+        datasets: [
+          {
+            label: 'Накопленный CF',
+            data: cumData,
+            borderColor: '#E5C896',
+            backgroundColor: ctx => {
+              const g = ctx.chart.ctx.createLinearGradient(0, 0, 0, 280);
+              g.addColorStop(0, 'rgba(229, 200, 150, 0.3)');
+              g.addColorStop(1, 'rgba(229, 200, 150, 0.0)');
+              return g;
+            },
+            tension: 0.4,
+            borderWidth: 2.5,
+            pointBackgroundColor: ctx => {
+              const v = ctx.parsed?.y;
+              return v < 0 ? '#C13D2F' : '#E5C896';
+            },
+            pointBorderColor: '#0A0908',
+            pointBorderWidth: 2,
+            pointRadius: 6,
+            pointHoverRadius: 8,
+            fill: true,
+          }
+        ]
+      },
+      options: {
+        responsive: true, maintainAspectRatio: false,
+        animation: { duration: 400 },
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            backgroundColor: '#1A1815', borderColor: '#C9A875', borderWidth: 1,
+            titleColor: '#E5C896', bodyColor: '#F2EDE4', padding: 10,
+            callbacks: { 
+              label: c => {
+                const sign = c.parsed.y < 0 ? '' : '+';
+                return `Накопленно: ${sign}$${c.parsed.y}K`;
+              }
+            }
+          }
+        },
+        scales: {
+          x: { ticks: tickStyle, grid: { color: 'rgba(42,39,34,0.5)' } },
+          y: { 
+            ticks: { ...tickStyle, callback: v => '$' + v + 'K' },
+            grid: { 
+              color: ctx => ctx.tick.value === 0 ? 'rgba(193, 61, 47, 0.4)' : 'rgba(42,39,34,0.5)',
+              lineWidth: ctx => ctx.tick.value === 0 ? 1.5 : 1
+            }
+          }
+        }
+      }
+    });
+  }
+  
+  // Bind controls
+  function bindControls() {
+    const controls = [
+      ['ctrl-market', 'market'],
+      ['ctrl-tourists', 'tourists'],
+      ['ctrl-injury', 'injury'],
+      ['ctrl-check', 'check'],
+      ['ctrl-capex', 'capex'],
+      ['ctrl-fx', 'fx']
+    ];
+    
+    controls.forEach(([id, param]) => {
+      const el = document.getElementById(id);
+      el.addEventListener('input', () => {
+        calcParams[param] = parseInt(el.value);
+        updateLabels();
+        updateOutputs();
+        // Снять active с пресетов если значения отличаются от пресетов
+        document.querySelectorAll('.preset-btn').forEach(b => {
+          const pre = presets[b.dataset.preset];
+          const matches = pre && Object.keys(pre).every(k => calcParams[k] === pre[k]);
+          b.classList.toggle('active', matches);
+        });
+      });
+    });
+    
+    // Presets
+    document.querySelectorAll('.preset-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const pre = presets[btn.dataset.preset];
+        Object.assign(calcParams, pre);
+        document.querySelectorAll('.preset-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        // Update sliders
+        document.getElementById('ctrl-market').value = pre.market;
+        document.getElementById('ctrl-tourists').value = pre.tourists;
+        document.getElementById('ctrl-injury').value = pre.injury;
+        document.getElementById('ctrl-check').value = pre.check;
+        document.getElementById('ctrl-capex').value = pre.capex;
+        document.getElementById('ctrl-fx').value = pre.fx;
+        updateLabels();
+        updateOutputs();
+      });
+    });
+    
+    // Reset
+    document.getElementById('btn-reset').addEventListener('click', () => {
+      Object.assign(calcParams, presets.base);
+      document.getElementById('ctrl-market').value = calcParams.market;
+      document.getElementById('ctrl-tourists').value = calcParams.tourists;
+      document.getElementById('ctrl-injury').value = calcParams.injury;
+      document.getElementById('ctrl-check').value = calcParams.check;
+      document.getElementById('ctrl-capex').value = calcParams.capex;
+      document.getElementById('ctrl-fx').value = calcParams.fx;
+      document.querySelectorAll('.preset-btn').forEach(b => b.classList.toggle('active', b.dataset.preset === 'base'));
+      updateLabels();
+      updateOutputs();
+    });
+  }
+  
+  // Init on load
+  initCalcCharts();
+  bindControls();
+  updateLabels();
+  updateOutputs();
+  
+  window.addEventListener('scroll', () => {
+    const scrollPos = window.scrollY + 200;
+    sections.forEach(sec => {
+      if (scrollPos >= sec.offsetTop && scrollPos < sec.offsetTop + sec.offsetHeight) {
+        navLinks.forEach(link => {
+          link.style.color = link.getAttribute('href') === '#' + sec.id ? 'var(--gold)' : '';
+        });
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
